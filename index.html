@@ -2,246 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bakhtiyor</title>
     <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+* {
+  box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            min-height: 100vh;
-            background: #060c21;
-            overflow: hidden;
-            font-family: "Poppins", sans-serif;
-        }
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
 
-        .container {
-            position: relative;
-            width: 90%;
-            display: grid;
-            top: 204px;
-            left: 0;
-            margin-left: 59px;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            grid-gap: 0 40px;
-            grid-template-rows: auto;
-        }
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
 
-        .container .box {
-            position: relative;
-            height: 400px;
-            background: #060c21;
-            display: flex;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
 
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
 
-        }
-
-        .container .content {
-            position: relative;
-            padding: 20px;
-        }
-
-        .content h2 {
-            opacity: 0;
-
-            position: absolute;
-            top: -60px;
-            right: 20px;
-            margin: 0;
-            padding: 0;
-            font-size: 10em;
-            color: rgba(255, 255, 255, .05);
-            transition: 0.5s;
-        }
-
-        .container .box::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            transform: skew(2deg, 2deg);
-            background: #ffff;
-            z-index: -1;
-        }
-
-        .container .box:nth-child(1)::before {
-            background: linear-gradient(315deg, #ff0057, #e64a19);
-            filter: blur(3px);
-        }
-
-        .container .box:nth-child(2)::before {
-            background: linear-gradient(315deg, #89ff00, #00bcd4);
-            filter: blur(3px);
-        }
-
-        .container .box:nth-child(3)::before {
-            background: linear-gradient(315deg, #e91e63, #5d02ff);
-            filter: blur(3px);
-        }
-
-        .container .box:nth-child(4)::before {
-            background: linear-gradient(315deg, #ff0000, #ffc107);
-            filter: blur(3px);
-        }
-
-        .container .box::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            filter: blur(4px);
-            height: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            pointer-events: none;
-        }
-
-        .box:hover .content h2 {
-            top: -140px;
-            opacity: 1;
-            overflow: hidden;
-
-        }
-
-        .content h3 {
-            margin: 0 0 10px;
-            padding: 0;
-            font-size: 24px;
-            font-weight: 500;
-            color: #fff;
-
-        }
-
-        .box .content p {
-            margin: 0;
-            padding: 0;
-            color: #fff;
-            font-size: 16px;
-        }
-
-        .box .content a {
-            position: relative;
-            margin: 20px 0 0;
-            padding: 10px 20px;
-            text-decoration: none;
-            border: 1px solid #fff;
-            display: inline-block;
-            color: #fff;
-            transition: 0.5s;
-            transform: translateY(-40px);
-            opacity: 0;
-            visibility: hidden;
-
-        }
-
-        .box:hover .content a {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .box:hover .content a:hover {
-            color: #000;
-            background: #fff;
-
-        }
-
-        .nav {
-            padding: 5px 12px;
-            display: block;
-            position: fixed;
-            border-bottom: 2px solid #fff;
-            width: 100%;
-            border-radius: 122px 12px / 50px 0;
-        }
-        .nav ul li{
-            list-style: none;
-            display: inline-block;
-        }
-        .nav ul li a{
-            text-decoration: none;
-            color: #fff;
-            padding: 13px 23px;
-            border: 2px solid transparent;
-            transition: 0.5s;
-            border-radius: 34px 4px / 23px 4px;
-
-        }
-        .nav ul li a:hover{
-            content: 'red';
-            width: 100%;
-            height: 100%;
-            border: 2px solid #fff;
-            border-radius: 34px 4px / 23px 9px;
-
-        }
-        .floatted{
-            margin-left: 600px;
-            border-radius: 112px 56px / 4px 56px !important;
-        }
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
     </style>
 </head>
-<body>
-
-<div class="nav">
-    <ul>
-        <li><a href="#about">Men haqimda</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#works">Ishlarim</a></li>
-        <li><a href="#contact">Bog'lanish</a></li>
-        <li><a href="#signUp" class="floatted">Ro'yxatdan o'tish</a></li>
-    </ul>
-</div>
-
-<div class="container">
-    <div class="box">
-        <div class="content">
-            <h2>01</h2>
-            <h3>Service one</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda at cum dignissimos distinctio,
-                earum ipsa labore .</p>
-            <a href="#">Read more</a>
+<body onload="typeWriter()">
+    <header>
+        <div class="logo">
+            <img src="/assets/images/logo.svg" alt="Our logo">
         </div>
-    </div>
-    <div class="box">
-        <div class="content">
-            <h2>02</h2>
-            <h3>Service two</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda at cum dignissimos distinctio,
-                earum ipsa labore .</p>
-            <a href="#">Read more</a>
+    </header>
+        <video autoplay muted loop id="myVideo">
+                <source src="assets/images/YouTube_3.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              
+              <div class="content">
 
-        </div>
-    </div>
-    <div class="box">
-        <div class="content">
-            <h2>03</h2>
-            <h3>Service three</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda at cum dignissimos distinctio,
-                earum ipsa labore .</p>
-            <a href="#">Read more</a>
 
-        </div>
-    </div>
-    <div class="box">
-        <div class="content">
-            <h2>04</h2>
-            <h3>Service four</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, assumenda at cum dignissimos distinctio,
-                earum ipsa labore .</p>
-            <a href="#">Read more</a>
+                  
+                <h1>Heading</h1>
+                <p id="demo"></p>
+                <button id="myBtn" onclick="myFunction()">Pause</button>
+              </div>
 
-        </div>
-    </div>
-</div>
+              <script>
+                
+                var i = 0;
+var txt = 'Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine molestiae, ad mutat oblique delicatissimi pro.';
+var speed = 50;
+                    var video = document.getElementById("myVideo");
+                    var btn = document.getElementById("myBtn");
+                    
+                    function myFunction() {
+                      if (video.paused) {
+                        video.play();
+                        btn.innerHTML = "Pause";
+                      } else {
+                        video.pause();
+                        btn.innerHTML = "Play";
+                      }
+                    }
 
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+                    </script>
 
 </body>
 </html>
